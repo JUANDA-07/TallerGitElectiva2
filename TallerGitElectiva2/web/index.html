@@ -5,12 +5,63 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-    <head>
-        <title>Electiva II</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>Taller Electiva 2 Git</div>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <title>Taller Electiva 2</title>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper teal darken-2"></div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="l6 m6 s12"></div>
+            <div class="l6 m6 s12">
+                <div class="wow zoomIn card-panel z-depth-3">   
+                    <h3 class="center-align">Iniciar Sesión</h3>
+                </div>
+            </div>
+            <div class="l6 m6 s12"></div>
+        </div>
+    </div>
+    <footer class="page-footer teal darken-2">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Electiva II</h5>
+                    <p class="grey-text text-lighten-4">Desarrollo taller electiva II usando JSP y mysql</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Desarrollado por</h5
+                        <p class="grey-text text-lighten-4">David Lara Diaz</p>
+                        <p class="grey-text text-lighten-4">Juan David Cáceres</p>
+                        <p class="grey-text text-lighten-4">Alexander Deaquiz</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2017 Copyright
+                </div>
+            </div>
+        </footer>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/jquery.js"></script>
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script>
+            new WOW().init();
+        </script>
+        <script>
+            $(document).ready(function () {
+                $(".button-collapse").sideNav();
+            });
+        </script>
     </body>
-</html>
+
+    </html>
