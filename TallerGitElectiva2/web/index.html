@@ -8,6 +8,7 @@ and open the template in the editor.
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+    <link rel="stylesheet" href="font/material-design-icons/material-icons.css">
     <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="css/animate.css">
     <title>Taller Electiva 2</title>
@@ -20,13 +21,41 @@ and open the template in the editor.
 
     <div class="container">
         <div class="row">
-            <div class="l6 m6 s12"></div>
-            <div class="l6 m6 s12">
+            <div class="col l12 m4 s6"></div>
+            <div class="col l12 m6 s6">
                 <div class="wow zoomIn card-panel z-depth-3">   
                     <h3 class="center-align">Iniciar Sesión</h3>
                 </div>
+                <div class="col s12 m6 l6">
+                    <div class="wow tada card-panel z-depth-5">
+                        <div class="row">
+                            <form>
+                                <div class="input-field col s10 m10 l10">
+                                    <i class="fa fa-user prefix"></i>
+                                    <input id="nombre" type="text" name="nombre" class="validate">
+                                    <label for="nombre">Nombre</label>
+                                </div>
+
+                                <div class="input-field col s10 m10 l10">
+                                    <i class="fa fa-key prefix"></i>
+                                    <input id="apellido" type="text" name="apellido" class="validate">
+                                    <label for="password">Apellido</label>
+                                </div>
+
+                                <div class="row center-align">  
+                                    <button class="btn waves-effect waves-light" type="submit">Enviar <i class="fa fa-send"></i></button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="wow tada col s12 m6 l6 center-align">
+                    <br>
+                    <img src="images/login.png">
+                </div>
             </div>
-            <div class="l6 m6 s12"></div>
+            <div class="col l12 m6 s6"></div>
         </div>
     </div>
     <footer class="page-footer teal darken-2">
@@ -37,10 +66,10 @@ and open the template in the editor.
                     <p class="grey-text text-lighten-4">Desarrollo taller electiva II usando JSP y mysql</p>
                 </div>
                 <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Desarrollado por</h5
-                        <p class="grey-text text-lighten-4">David Lara Diaz</p>
-                        <p class="grey-text text-lighten-4">Juan David Cáceres</p>
-                        <p class="grey-text text-lighten-4">Alexander Deaquiz</p>
+                    <h5 class="white-text">Desarrollado por:</h5
+                        <p class="grey-text text-lighten-4"><i class="fa fa-user"></i> David Lara Diaz</p>
+                        <p class="grey-text text-lighten-4"><i class="fa fa-user"></i> Juan David Cáceres</p>
+                        <p class="grey-text text-lighten-4"><i class="fa fa-user"></i> Alexander Deaquiz</p>
                     </div>
                 </div>
             </div>
@@ -50,6 +79,7 @@ and open the template in the editor.
                 </div>
             </div>
         </footer>
+
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script src="js/wow.min.js"></script>
         <script src="js/jquery.js"></script>
