@@ -1,5 +1,17 @@
+function cargarUsuarios() {
+
+    var xhr = new XMLHttpRequest
+    xhr.open("GET", "ServletUsers", true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            alert(xhr.responseText);
+        }
+    }
+    xhr.send(null);
+}
+
 function validar() {
-    alert("Entro funcion");
+
     var sesion = false;
     var xhr = new XMLHttpRequest();
 

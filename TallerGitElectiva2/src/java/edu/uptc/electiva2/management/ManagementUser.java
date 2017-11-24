@@ -40,5 +40,23 @@ public class ManagementUser {
             arrayUsers.add(new User(idUser, password));
         }
     }
+    
+    // Gettes and Setters-----------------------------------
+    public ArrayList<User> getArrayUsers() {
+        return arrayUsers;
+    }
+
+    public void setArrayUsers(ArrayList<User> arrayUsers) {
+        this.arrayUsers = arrayUsers;
+    }
+
+    public UserConection getUserCon() {
+        return userCon;
+    }
+
+    public void setUserCon(UserConection userCon) {
+        this.userCon = userCon;
+    }
+    
 
 }
