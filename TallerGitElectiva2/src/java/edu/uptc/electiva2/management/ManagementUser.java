@@ -36,11 +36,19 @@ public class ManagementUser {
         while (rs.next()) {
             String idUser = rs.getString(1);
             String password = rs.getString(5);
-
             arrayUsers.add(new User(idUser, password));
         }
     }
-    
+
+    public User findUser(String id, String pass) {
+        for (User user : arrayUsers) {
+            if (user.getIdUser().equals(id) && user.getPassword().equals(pass)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
     // Gettes and Setters-----------------------------------
     public ArrayList<User> getArrayUsers() {
         return arrayUsers;
@@ -57,6 +65,5 @@ public class ManagementUser {
     public void setUserCon(UserConection userCon) {
         this.userCon = userCon;
     }
-    
 
 }
