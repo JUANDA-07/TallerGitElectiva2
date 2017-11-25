@@ -7,7 +7,7 @@ create table User
   nombre varchar(30) not null,
   apellido varchar(30) not null,
   edad numeric(2,0) not null,
-  password varchar(20) not null
+  password varchar(40) not null
   );
 
 create table Product
