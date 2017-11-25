@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -42,11 +43,16 @@ public class ServletValidar extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("application/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            HttpSession session1 = request.getSession();
             String id = request.getParameter("id");
             String pass = request.getParameter("pass");
             Gson g = new Gson();
             String json = g.toJson(mngu.findUser(id, pass));
             out.print(json);
+            if (json != null) {
+                session1.setAttribute("user", id);
+                session1.setMaxInactiveInterval(200);
+            }
         }
     }
 

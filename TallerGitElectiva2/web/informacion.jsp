@@ -1,9 +1,21 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%!
+    String usuario = "";
+    String pass = "";
+%>
+<%
+    HttpSession sesionOn = request.getSession();
+    if (sesionOn.getAttribute("user") == null) {
+%>
+<script type="text/javascript">
+    alert("Por favor inicia sesion");
+    location.href = "index.html";
+</script>
+<%} else {
+        usuario = (String) sesionOn.getAttribute("user");
+        pass = (String) sesionOn.getAttribute("pass");
+    }
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -14,44 +26,25 @@ and open the template in the editor.
         <title>Taller Electiva 2</title>
     </head>
 
-    <body onload="cargarUsuarios();">
-        <nav>
-            <div class="nav-wrapper teal darken-2"></div>
-        </nav>
+    <body>
+        <!--Colocamos la barra de navegación fija-->
+        <div class="navbar-fixed">
+            <!--Creamos una barra de navegación-->
+            <nav>
+                <!--Aca abajo mediante la clase teal asignamos otro color a la navbar y mediante el darken y lighten asignamos oscuridad o luz a la barra-->
+                <div class="nav-wrapper teal darken-2">
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="logout.jsp" id=""><i class="fa fa-sign-out"></i> Cerrar Sesión</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
 
         <div class="container">
             <div class="row">
                 <div class="col l12 m4 s6"></div>
                 <div class="col l12 m6 s6">
-                    <div class="wow zoomIn card-panel z-depth-3">   
-                        <h3 class="center-align">Iniciar Sesión</h3>
-                    </div>
-                    <div class="col s12 m6 l6">
-                        <div class="wow tada card-panel z-depth-5">
-                            <div class="row">
-                                <form>
-                                    <div class="input-field col s10 m10 l10">
-                                        <i class="fa fa-user prefix"></i>
-                                        <input id="id" type="text" name="id" class="validate" placeholder="Id Usuario">
-                                    </div>
 
-                                    <div class="input-field col s10 m10 l10">
-                                        <i class="fa fa-key prefix"></i>
-                                        <input id="pass" type="password" name="pass" class="validate" placeholder="Password">
-                                    </div>
-
-                                    <div class="row center-align">  
-                                        <button onclick="validarUsuarios();" class="btn waves-effect waves-light" type="submit">Ingresar <i class="fa fa-sign-in"></i></button>
-                                    </div>
-
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="wow tada col s12 m6 l6 center-align">
-                        <br>
-                        <img class="responsive-img" src="images/login.png">
-                    </div>
                 </div>
                 <div class="col l12 m6 s6"></div>
             </div>
@@ -92,3 +85,4 @@ and open the template in the editor.
     </body>
 
 </html>
+

@@ -1,4 +1,3 @@
-
 create database electiva2;
 use electiva2;
 
@@ -17,7 +16,6 @@ create table Product
   costo numeric(6,0),
   url varchar(60)
   );
-
 
   insert into User
     (id_user,nombre,apellido,edad,password) values
