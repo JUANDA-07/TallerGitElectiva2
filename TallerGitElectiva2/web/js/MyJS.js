@@ -23,8 +23,8 @@ function validarUsuarios() {
             if (out != null) {
                 location.href = "informacion.jsp";
             } else {
-                location.href = "index.html";
-                alert("Usuario o contraseña incorrectos");
+                location.href = "registro.html";
+                alert("Usuario o contraseña incorrectos ó usuario inexistente!!!...");
             }
         }
     }
