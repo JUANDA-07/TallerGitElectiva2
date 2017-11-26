@@ -7,6 +7,7 @@ package edu.uptc.electiva2.management;
 
 import edu.uptc.electiva2.persistence.User;
 import edu.uptc.electiva2.persistence.UserConection;
+import java.security.MessageDigest;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -40,13 +41,33 @@ public class ManagementUser {
         }
     }
 
-    public User findUser(String id, String pass) {
+    public User findUser(String id, String pass) throws Exception {
+        String passenc = md5(pass);
+        System.out.println("Esta es la cont que llega encriptada " + passenc);
         for (User user : arrayUsers) {
-            if (user.getIdUser().equals(id) && user.getPassword().equals(pass)) {
+            if (user.getIdUser().equals(id) && user.getPassword().equals(passenc)) {
                 return user;
             }
         }
         return null;
+    }
+
+    public String md5(String clear) throws Exception {
+        MessageDigest md = MessageDigest.getInstance("MD5");
+        byte[] b = md.digest(clear.getBytes());
+        int size = b.length;
+        StringBuffer h = new StringBuffer(size);
+        //algoritmo y arreglo md5
+        for (int i = 0; i < size; i++) {
+            int u = b[i] & 255;
+            if (u < 16) {
+                h.append("0" + Integer.toHexString(u));
+            } else {
+                h.append(Integer.toHexString(u));
+            }
+        }
+        //clave encriptada
+        return h.toString();
     }
 
     // Gettes and Setters-----------------------------------
