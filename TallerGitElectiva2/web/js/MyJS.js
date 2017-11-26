@@ -31,6 +31,25 @@ function validarUsuarios() {
     xhr.send(null);
 }
 
+function registrarUser() {
+    var xhr = new XMLHttpRequest;
+    var id = document.getElementById("id").value;
+    var nombre = document.getElementById("nombre").value;
+    var apellido = document.getElementById("apellido").value;
+    var edad = document.getElementById("edad").value;
+    var pass = document.getElementById("pass").value;
+
+    xhr.open("GET", "ServletRegistrar?id=" + id + "&nombre=" + nombre + "&apellido=" + apellido + "&edad=" + edad + "&pass=" + pass, true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            alert(xhr.responseText);
+            var out = JSON.parse(xhr.responseText);
+        }
+    }
+    xhr.send();
+
+}
+
 
 //
 ////------Encriptaciones-----------------------------------

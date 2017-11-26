@@ -16,7 +16,11 @@ and open the template in the editor.
 
     <body>
         <nav>
-            <div class="nav-wrapper teal darken-2"></div>
+            <div class="nav-wrapper teal darken-2">
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="logout.jsp" id=""><i class="fa fa-home"></i> Inicio</a></li>
+                </ul>
+            </div>
         </nav>
 
         <div class="container">
@@ -24,30 +28,29 @@ and open the template in the editor.
                 <div class="col l12 m4 s6"></div>
                 <div class="col l12 m6 s6">
                     <div class="wow zoomIn card-panel z-depth-3">   
-                        <h3 class="center-align">Iniciar Sesión</h3>
+                        <h3 class="center-align">Registro</h3>
                     </div>
                     <div class="col s12 m6 l6">
                         <div class="wow tada card-panel z-depth-5">
                             <div class="row">
-                                <form>
                                     <div class="input-field col s10 m10 l10">
                                         <i class="fa fa-user prefix"></i>
                                         <input id="id" type="text" name="id" class="validate" placeholder="Id Usuario">
                                     </div>
 
                                     <div class="input-field col s10 m10 l10">
-                                        <i class="fa fa-key prefix"></i>
-                                        <input id="pass" type="text" name="nombre" class="validate" placeholder="Nombre">
+                                        <i class="fa fa-user-o prefix"></i>
+                                        <input id="nombre" type="text" name="nombre" class="validate" placeholder="Nombre">
                                     </div>
 
                                     <div class="input-field col s10 m10 l10">
-                                        <i class="fa fa-key prefix"></i>
-                                        <input id="pass" type="text" name="apellido" class="validate" placeholder="Apellido">
+                                        <i class="fa fa-user-circle-o prefix"></i>
+                                        <input id="apellido" type="text" name="apellido" class="validate" placeholder="Apellido">
                                     </div>
 
                                     <div class="input-field col s10 m10 l10">
-                                        <i class="fa fa-key prefix"></i>
-                                        <input id="pass" type="text" name="edad" class="validate" placeholder="Edad">
+                                        <i class="fa fa-user-circle prefix"></i>
+                                        <input id="edad" type="text" name="edad" class="validate" placeholder="Edad">
                                     </div>
 
                                     <div class="input-field col s10 m10 l10">
@@ -56,10 +59,9 @@ and open the template in the editor.
                                     </div>
 
                                     <div class="row center-align">  
-                                        <button onclick="" class="btn waves-effect waves-light" type="submit">Registrar <i class="fa fa-sign-in"></i></button>
+                                        <button onclick="registrarUser();" class="btn waves-effect waves-light" type="submit">Registrar <i class="fa fa-sign-in"></i></button>
                                     </div>
 
-                                </form>
                             </div>
                         </div>
                     </div>

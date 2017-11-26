@@ -5,11 +5,16 @@
  */
 package edu.uptc.electiva2.management;
 
+import edu.uptc.electiva2.persistence.Conection;
 import edu.uptc.electiva2.persistence.User;
 import edu.uptc.electiva2.persistence.UserConection;
 import java.security.MessageDigest;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
@@ -22,6 +27,8 @@ public class ManagementUser {
     private ArrayList<User> arrayUsers;
 
     private UserConection userCon;
+    private Statement stam;
+    private PreparedStatement psInsertarUser;
 
     // Building----------------------------------------
     public ManagementUser() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
@@ -68,6 +75,27 @@ public class ManagementUser {
         }
         //clave encriptada
         return h.toString();
+    }
+
+    // Metodo para registrar usuarios en la BD
+    public User registrarUser(User user) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+
+        Connection conn = null;
+
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/electiva2", "root", "");
+
+        stam = conn.createStatement();
+        psInsertarUser = conn.prepareStatement("INSERT INTO user(id_user,nombre,apellido,edad,password)" + "VALUES(?,?,?,?,md5(?))");
+
+        psInsertarUser.setString(1, user.getIdUser());
+        psInsertarUser.setString(2, user.getNombre());
+        psInsertarUser.setString(3, user.getApellido());
+        psInsertarUser.setString(4, user.getEdad());
+        psInsertarUser.setString(5, user.getPassword());
+
+        psInsertarUser.executeUpdate();
+        return user;
     }
 
     // Gettes and Setters-----------------------------------
