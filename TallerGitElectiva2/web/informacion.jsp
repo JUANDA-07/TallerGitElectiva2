@@ -24,7 +24,7 @@
         <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css">
         <link rel="stylesheet" href="css/animate.css">
         <title>Taller Electiva 2</title>
-        
+
     </head>
 
     <body onload="cargar()">
@@ -45,7 +45,7 @@
             <div class="row">
                 <div class="col l12 m4 s6"></div>
                 <div class="col l12 m6 s6">
-
+                    <div id="contenido"></div>
                 </div>
                 <div class="col l12 m6 s6"></div>
             </div>
@@ -56,9 +56,6 @@
                     <div class="col l6 s12">
                         <h5 class="white-text">Electiva II</h5>
                         <p class="grey-text text-lighten-4">Desarrollo taller electiva II usando JSP y mysql</p>
-                    </div>
-                    <div id="contenido">
-                        
                     </div>
                     <div class="col l4 offset-l2 s12">
                         <h5 class="white-text">Desarrollado por:</h5
@@ -84,29 +81,9 @@
             $(document).ready(function () {
                 $(".button-collapse").sideNav();
             });
-            
+
         </script>
-        <script src="js/MyJS.js"></script>
-        <script>
-            function cargar(){
-                var xhr= new XMLHttpRequest();
-                xhr.open("POST","ServletCarga",true);
-                xhr.onreadystatechange= function (){
-                    if (xhr.readyState==4){
-                        var tabla="<table border='1'><tr>\n\
-                            <th><center>#</center></th>\n\
-                            <th><center>Nombre</center></th>\n\
-                            <th><center>Costo</center></th>\n\
-                            <th><center>Descripcion</center></th>\n\
-                        </tr>";
-                        tabla+=xhr.responseText;
-                        tabla+="</table>";
-                        document.getElementById("contenido").innerHTML=tabla;
-                    }
-                }
-                xhr.send();
-            }
-        </script>
+        <script src="js/MyJS.js"></script>    
     </body>
 
 </html>

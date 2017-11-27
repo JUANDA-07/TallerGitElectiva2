@@ -5,13 +5,10 @@
  */
 package edu.uptc.electiva2.servlet;
 
+import com.google.gson.Gson;
 import edu.uptc.electiva2.management.ManagementProdu;
-import edu.uptc.electiva2.persistence.Product;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Scanner;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,36 +17,51 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Sala.2
+ * @author JUANDA-07
  */
 @WebServlet(name = "ServletCarga", urlPatterns = {"/ServletCarga"})
 public class ServletCarga extends HttpServlet {
 
-    public ServletCarga(){
-        
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    private ManagementProdu mngp;
+
+    public ServletCarga() {
+        mngp = new ManagementProdu();
     }
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            Gson g = new Gson();
+            String json = g.toJson(mngp.getProducts());
+            System.out.println(json);
+            out.print(json);
+        }
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        PrintWriter out = response.getWriter();
-        ManagementProdu mng= new ManagementProdu();
-        ArrayList<Product> productos=mng.getProducts();
-        
-        if(productos != null){
-            for (int i=0 ; i<=productos.size(); i++){   
-                   out.print("<tr>");
-                   out.print("<td>"+i+1+"</td>");
-                   out.print("<td>"+productos.get(i).getName()+"</td>");
-                   out.print("<td>"+productos.get(i).getCosto()+"</td>");
-                   out.print("<td><img src='"+productos.get(i).getUrl()+"'></td>");
-                   out.print("</tr>");
-            }
-                
-        
-        }else{
-            out.print("<h4>No hay Productos para mostrar</h4>");
-        }
-        
+        processRequest(request, response);
     }
 
     /**
@@ -63,7 +75,7 @@ public class ServletCarga extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        processRequest(request, response);
     }
 
     /**

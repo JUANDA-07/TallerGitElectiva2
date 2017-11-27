@@ -10,6 +10,7 @@ package edu.uptc.electiva2.persistence;
  * @author DavidLenovo
  */
 public class Product {
+
     String name;
     String costo;
     String url;
@@ -43,6 +44,5 @@ public class Product {
     public void setUrl(String url) {
         this.url = url;
     }
-    
-    
+
 }

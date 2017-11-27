@@ -38,7 +38,7 @@ public class ManagementUser {
     }
 
     // Metodo que carga los usuarios al arreglo
-    private void loadUsers() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
+    public void loadUsers() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
         ResultSet rs = userCon.selectAllUsers();
 
         while (rs.next()) {
@@ -95,6 +95,7 @@ public class ManagementUser {
         psInsertarUser.setString(5, user.getPassword());
 
         psInsertarUser.executeUpdate();
+        conn.close();
         return user;
     }
 

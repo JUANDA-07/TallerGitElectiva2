@@ -33,6 +33,10 @@ public class Conection {
 
     }
 
+    public void close() throws SQLException {
+        conection.close();
+    }
+
     public Connection getConection() {
         return conection;
     }

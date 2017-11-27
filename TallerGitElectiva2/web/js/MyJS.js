@@ -1,9 +1,9 @@
 function cargarUsuarios() {
     var xhr = new XMLHttpRequest;
-
     xhr.open("GET", "ServletCargaUsers", true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
+            alert(xhr.responseText);
             var out = JSON.parse(xhr.responseText);
         }
     }
@@ -15,7 +15,6 @@ function validarUsuarios() {
     var xhr = new XMLHttpRequest;
     var id = document.getElementById("id").value;
     var pass = document.getElementById("pass").value;
-
     xhr.open("GET", "ServletValidar?id=" + id + "&pass=" + pass, true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
@@ -38,7 +37,6 @@ function registrarUser() {
     var apellido = document.getElementById("apellido").value;
     var edad = document.getElementById("edad").value;
     var pass = document.getElementById("pass").value;
-
     xhr.open("GET", "ServletRegistrar?id=" + id + "&nombre=" + nombre + "&apellido=" + apellido + "&edad=" + edad + "&pass=" + pass, true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
@@ -47,7 +45,28 @@ function registrarUser() {
         }
     }
     xhr.send();
+}
 
+function cargar() {
+    var con = document.getElementById("contenido");
+    con.innerHTML = "";
+    var xhr = new XMLHttpRequest;
+    xhr.open("GET", "ServletCarga", true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            var out = JSON.parse(xhr.responseText);
+            var tabla = "<table border='1'><tr>\n\
+                            <th><center>#</center></th>\n\
+                            <th><center>Nombre</center></th>\n\
+                            <th><center>Costo</center></th>\n\
+                            <th><center>Descripcion</center></th>\n\
+                        </tr>";
+            tabla += xhr.responseText;
+            tabla += "</table>";
+            con.innerHTML = tabla;
+        }
+    }
+    xhr.send(null);
 }
 
 
