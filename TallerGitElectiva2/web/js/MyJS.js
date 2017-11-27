@@ -3,7 +3,7 @@ function cargarUsuarios() {
     xhr.open("GET", "ServletCargaUsers", true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
-            //alert(xhr.responseText);
+            alert(xhr.responseText);
             var out = JSON.parse(xhr.responseText);
         }
     }

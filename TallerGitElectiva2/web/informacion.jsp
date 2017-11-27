@@ -25,6 +25,13 @@
         <link rel="stylesheet" href="css/animate.css">
         <title>Taller Electiva 2</title>
 
+        <script src="js/MyJS.js"></script>    
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/jquery.js"></script>
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script>new WOW().init();</script>
+
     </head>
 
     <body onload="cargar()">
@@ -71,19 +78,13 @@
                 </div>
             </div>
         </footer>
-
-        <script type="text/javascript" src="js/materialize.min.js"></script>
-        <script src="js/wow.min.js"></script>
-        <script src="js/jquery.js"></script>
-        <script src="js/jquery-1.11.1.min.js"></script>
-        <script>new WOW().init();</script>
         <script>
             $(document).ready(function () {
                 $(".button-collapse").sideNav();
             });
 
         </script>
-        <script src="js/MyJS.js"></script>    
+
     </body>
 
 </html>
