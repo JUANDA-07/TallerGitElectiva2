@@ -3,7 +3,7 @@ function cargarUsuarios() {
     xhr.open("GET", "ServletCargaUsers", true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
-            alert(xhr.responseText);
+            //alert(xhr.responseText);
             var out = JSON.parse(xhr.responseText);
         }
     }
@@ -55,13 +55,14 @@ function cargar() {
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
             var out = JSON.parse(xhr.responseText);
-            var tabla = "<table border='1'><tr>\n\
-                            <th><center>#</center></th>\n\
-                            <th><center>Nombre</center></th>\n\
-                            <th><center>Costo</center></th>\n\
-                            <th><center>Descripcion</center></th>\n\
+            var tabla = "<br><table class='bordered centered' align='center' border='1'><tr>\n\
+                            <th class='center'>Nombre</th>\n\
+                            <th class='center'>Costo</th>\n\
+                            <th class='center'>Descripcion</th>\n\
                         </tr>";
-            tabla += xhr.responseText;
+            for (var item in out) {
+                tabla += "<tr><td>" + out[item].name + "</td><td>" + out[item].costo + "</td><td style='heigth:100px'><img src='" + out[item].url + "' heigth='100'/></td></tr>";
+            }
             tabla += "</table>";
             con.innerHTML = tabla;
         }

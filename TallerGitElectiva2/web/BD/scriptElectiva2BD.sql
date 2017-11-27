@@ -32,7 +32,7 @@ create table Product
 
 insert into Product
   (nombreProduct,costo,url) values
-  ("granos",1000,"\web\imagenes\arroz.jpg"),
-  ("carnes",1000,"\web\imagenes\carne.png"),
-  ("motos",1000,"\web\imagenes\moto.jpg"),
-  ("carros",1000,"\web\imagenes\carro.jpg");
+  ("granos",1000,"imagenes/arroz.jpg"),
+  ("carnes",1000,"imagenes/carne.png"),
+  ("motos",1000,"imagenes/moto.jpg"),
+  ("carros",1000,"imagenes/carro.jpg");

@@ -17,44 +17,44 @@ import java.util.logging.Logger;
  * @author DavidLenovo
  */
 public class ManagementProdu {
+
     ArrayList<Product> productos;
 
     public ManagementProdu() {
         this.productos = new ArrayList<>();
         cargarProductos();
     }
-    
-    public void cargarProductos(){
+
+    public void cargarProductos() {
         try {
-            Conection conexion= new Conection();
-                if( conexion.connectBD() ){
-                    
-                    Statement st = conexion.getConection().createStatement();
-                    ResultSet rs = st.executeQuery("select * from product");
-                    while (rs.next()) {
-                        
-                        String nombre=rs.getString(1);
-                        String costo=rs.getString(2);
-                        String url=rs.getString(3);
-                        
-                        productos.add(new Product(nombre, costo, url));
-                                
-                     }
+            Conection conexion = new Conection();
+            if (conexion.connectBD()) {
+
+                Statement st = conexion.getConection().createStatement();
+                ResultSet rs = st.executeQuery("select * from product");
+                while (rs.next()) {
+
+                    String nombre = rs.getString(1);
+                    String costo = rs.getString(2);
+                    String url = rs.getString(3);
+
+                    productos.add(new Product(nombre, costo, url));
                 }
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(ManagementProdu.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (InstantiationException ex) {
-                Logger.getLogger(ManagementProdu.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IllegalAccessException ex) {
-                Logger.getLogger(ManagementProdu.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ManagementProdu.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(ManagementProdu.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(ManagementProdu.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
             Logger.getLogger(ManagementProdu.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
-    public ArrayList<Product> getProducts(){
+
+    public ArrayList<Product> getProducts() {
         return productos;
     }
-    
+
 }
