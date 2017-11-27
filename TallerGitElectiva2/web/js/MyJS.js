@@ -7,7 +7,7 @@ function cargarUsuarios() {
             var out = JSON.parse(xhr.responseText);
         }
     }
-    xhr.send(null);
+    xhr.send();
 }
 
 function validarUsuarios() {
@@ -27,7 +27,7 @@ function validarUsuarios() {
             }
         }
     }
-    xhr.send(null);
+    xhr.send();
 }
 
 function registrarUser() {
@@ -67,7 +67,7 @@ function cargar() {
             con.innerHTML = tabla;
         }
     }
-    xhr.send(null);
+    xhr.send();
 }
 
 

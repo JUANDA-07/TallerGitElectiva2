@@ -45,7 +45,7 @@ public class ServletCarga extends HttpServlet {
             Gson g = new Gson();
             String json = g.toJson(mngp.getProducts());
             System.out.println(json);
-            out.print(json);
+            out.print("" + json);
         }
     }
 

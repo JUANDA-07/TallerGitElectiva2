@@ -50,7 +50,7 @@ public class ServletValidar extends HttpServlet {
             String pass = request.getParameter("pass");
             Gson g = new Gson();
             String json = g.toJson(mngu.findUser(id, pass));
-            out.print(json);
+            out.print("" + json);
             if (json != null) {
                 session1.setAttribute("user", id);
                 session1.setMaxInactiveInterval(200);

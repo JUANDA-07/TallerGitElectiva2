@@ -48,7 +48,7 @@ public class ServletCargaUsers extends HttpServlet {
             mngu.getArrayUsers().clear();
             mngu.loadUsers();
             String json = g.toJson(mngu.getArrayUsers());
-            out.print(json);
+            out.print("" + json);
         }
     }
 
